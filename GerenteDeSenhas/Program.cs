@@ -30,6 +30,7 @@ builder.Services.AddScoped<EmailService, EmailService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Configuration.AddUserSecrets<Program>();
 
 var app = builder.Build();
 
@@ -39,6 +40,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 
 app.UseHttpsRedirection();
 

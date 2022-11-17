@@ -18,6 +18,22 @@
 <h2>Descrição do projeto</h2>
 <p align="justify">Esse projeto em especifico apresenta a implementação da API RESTful, citada anteriomente, para um sistema de Gerenciamento de Senhas com funcionalidades basicas, tendo como metodo de requisição HTTP associado com sistema de gerenciamento de banco de dados MySQL. A criação e conexão com o banco de dados é feita utilizando Entity Framework e como auxilio a visualização da implementação é utilizado o Swagger.</p>
 
+<h2>Configurando o projeto</h2>
+<p>Para configuração do projeto abra o terminal de sua preferência e no diretorio do projeto execute os comandos abaixo:</p>
+
+```
+dotnet user-secrets init
+
+dotnet user-secrets set “EmailSettings:From” “<SEU-EMAIL>”
+
+dotnet user-secrets set “EmailSettings:SmtpServer” “smtp.gmail.com”
+
+dotnet user-secrets set “EmailSettings:Port” “465”
+
+dotnet user-secrets set “EmailSettings:Port” “<SUA-SENHA>”
+```
+<p>Nos campos "SEU-EMAIL" e "SUA-SENHA" altere para o email e senha que enviará o codigo de verificação de e-mail para os novos usuários.<p>
+
 <h2>Desenvolvedores do projeto</h2>
 <img src="https://avatars.githubusercontent.com/u/106783873?v=4" width=115><h5><b>Matheus Araújo<b></h5>
 
