@@ -1,4 +1,5 @@
 using GerenteDeSenhas.Data;
+using GerenteDeSenhas.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,13 +11,22 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddDbContext<UserDbContext>(opts =>
     opts.UseMySql(
         builder.Configuration.GetConnectionString("UserDbConnection"),
         new MySqlServerVersion(new Version(8, 0))));
-builder.Services.AddIdentity<IdentityUser<Guid>, IdentityRole<Guid>>()
+
+builder.Services.AddIdentity<IdentityUser<Guid>, IdentityRole<Guid>>(
+    opt => opt.SignIn.RequireConfirmedEmail = true
+    )
     .AddEntityFrameworkStores<UserDbContext>();
+
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddScoped<CadastroService, CadastroService>();
+builder.Services.AddScoped<LoginService, LoginService>();
+builder.Services.AddScoped<LogoutService, LogoutService>();
+builder.Services.AddScoped<TokenService, TokenService>();
 
 var app = builder.Build();
 
