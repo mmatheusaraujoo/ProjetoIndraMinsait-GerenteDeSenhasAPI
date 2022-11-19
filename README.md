@@ -21,7 +21,7 @@
 
 <h1>Tecnologias Utilizadas</h1>
 
-<h2>C# / .NET6</h2>>
+<h2>C# / .NET6</h2>
 <p>Linguagem das API's e Framework Utilizado<p>
 
 <h2>Visual Basic</h2>
@@ -31,21 +31,21 @@
 <p>Foram utilizados os seguintes pacotes Nuget, e suas versões, como ferramentas, de forma a auxiliar o desenvolvimento da aplicação em varias frentes.</p>
 
 ```
-  "AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0"
-	"FluentResults" Version="3.15.0"
-	"MailKit" Version="3.4.2"
-	"Microsoft.AspNetCore.Identity" Version="2.2.0"
-	"Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.11"
-	"Microsoft.EntityFrameworkCore" Version="6.0.11"
-	"Microsoft.EntityFrameworkCore.Proxies" Version="6.0.11"
-	"Microsoft.EntityFrameworkCore.Relational" Version="6.0.11"
-  "Microsoft.EntityFrameworkCore.Tools" Version="6.0.11"
-  "Microsoft.Extensions.Identity.Stores" Version="6.0.11"
-	"MimeKit" Version="3.4.2"
-	"Pomelo.EntityFrameworkCore.MySql" Version="6.0.2"
-	"Microsoft.EntityFrameworkCore.Design" Version="6.0.11"
-  "Swashbuckle.AspNetCore" Version="6.4.0"
-  "System.IdentityModel.Tokens.Jwt" Version="6.25.0"
+"AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0"
+"FluentResults" Version="3.15.0"
+"MailKit" Version="3.4.2"
+"Microsoft.AspNetCore.Identity" Version="2.2.0"
+"Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.11"
+"Microsoft.EntityFrameworkCore" Version="6.0.11"
+"Microsoft.EntityFrameworkCore.Proxies" Version="6.0.11"
+"Microsoft.EntityFrameworkCore.Relational" Version="6.0.11"
+"Microsoft.EntityFrameworkCore.Tools" Version="6.0.11"
+"Microsoft.Extensions.Identity.Stores" Version="6.0.11"
+"MimeKit" Version="3.4.2"
+"Pomelo.EntityFrameworkCore.MySql" Version="6.0.2"
+"Microsoft.EntityFrameworkCore.Design" Version="6.0.11"
+"Swashbuckle.AspNetCore" Version="6.4.0"
+"System.IdentityModel.Tokens.Jwt" Version="6.25.0"
 ```
 
 <h2>Configurando o projeto</h2>
