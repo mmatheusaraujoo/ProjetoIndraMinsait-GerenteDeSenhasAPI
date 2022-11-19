@@ -16,20 +16,46 @@
 
 
 <h2>Descrição do projeto</h2>
-<p align="justify">Esse projeto em especifico apresenta a implementação da API RESTful, citada anteriomente, para um sistema de Gerenciamento de Senhas com funcionalidades basicas, tendo como metodo de requisição HTTP associado com sistema de gerenciamento de banco de dados MySQL. A criação e conexão com o banco de dados é feita utilizando Entity Framework e como auxilio a visualização da implementação é utilizado o Swagger.</p>
+<p align="justify">Esse projeto em especifico apresenta a implementação de duas API RESTful, citada anteriomente, para um sistema de Gerenciamento de Senhas com funcionalidades basicas, tendo como metodo de requisição HTTP associado com sistema de gerenciamento de banco de dados MySQL. A API "GerenteDeSenha" é responsavel pela criação de usuarios e manipulação dos mesmos, já a API "SenhasAPI" é responsavel pelo CRUD de senhas a partir de um usuário já cadastrado. A criação e conexão com o banco de dados é feita utilizando Entity Framework, como auxilio a visualização da implementação é utilizado o Swagger, para gerenciar os acessos e geração de Tokens foi utilizado o Identity Framework.</p>
+
+
+<h1>Tecnologias Utilizadas</h1>
+
+<h2>C# / .NET6</h2>>
+<p>Linguagem das API's e Framework Utilizado<p>
+
+<h2>Visual Basic</h2>
+<p>Foi utilizado a IDE como ambiente de densenvolvimento das API's.</p>
+
+<h3>Pacotes Nuget</h3>
+<p>Foram utilizados os seguintes pacotes Nuget, e suas versões, como ferramentas, de forma a auxiliar o desenvolvimento da aplicação em varias frentes.</p>
+
+```
+  "AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0"
+	"FluentResults" Version="3.15.0"
+	"MailKit" Version="3.4.2"
+	"Microsoft.AspNetCore.Identity" Version="2.2.0"
+	"Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.11"
+	"Microsoft.EntityFrameworkCore" Version="6.0.11"
+	"Microsoft.EntityFrameworkCore.Proxies" Version="6.0.11"
+	"Microsoft.EntityFrameworkCore.Relational" Version="6.0.11"
+  "Microsoft.EntityFrameworkCore.Tools" Version="6.0.11"
+  "Microsoft.Extensions.Identity.Stores" Version="6.0.11"
+	"MimeKit" Version="3.4.2"
+	"Pomelo.EntityFrameworkCore.MySql" Version="6.0.2"
+	"Microsoft.EntityFrameworkCore.Design" Version="6.0.11"
+  "Swashbuckle.AspNetCore" Version="6.4.0"
+  "System.IdentityModel.Tokens.Jwt" Version="6.25.0"
+```
 
 <h2>Configurando o projeto</h2>
 <p>Para configuração do projeto abra o terminal de sua preferência e no diretorio do projeto execute os comandos abaixo:</p>
 
 ```
 dotnet user-secrets init
-
 dotnet user-secrets set “EmailSettings:From” “<SEU-EMAIL>”
-
 dotnet user-secrets set “EmailSettings:SmtpServer” “smtp.gmail.com”
-
 dotnet user-secrets set “EmailSettings:Port” “465”
-
 dotnet user-secrets set “EmailSettings:Port” “<SUA-SENHA>”
 ```
 <p>Nos campos "SEU-EMAIL" e "SUA-SENHA" altere para o email e senha que enviará o codigo de verificação de e-mail para os novos usuários.<p>
