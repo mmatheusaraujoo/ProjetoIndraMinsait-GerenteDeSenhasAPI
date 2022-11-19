@@ -16,6 +16,9 @@ namespace SenhasAPI.Data.Dtos.SenhaDtos
         [MinLength(4)]
         [DataType(DataType.Password)]
         public string Valor { get; set; }
+        
+        [Required]
+        public DateTime DataDeCriacao { get; set; } = DateTime.Now;
 
         public CreateSenhaDto(string descricao, string login, string valor)
         {

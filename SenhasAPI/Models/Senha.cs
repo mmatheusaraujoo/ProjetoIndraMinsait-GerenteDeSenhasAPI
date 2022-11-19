@@ -8,7 +8,7 @@ namespace SenhasAPI.Models
     {
         [Key]
         [Required]
-        public Guid Id { get; set; } = new Guid();
+        public Guid Id { get; set; }
 
         [Required]
         [MinLength(4)]
@@ -24,7 +24,7 @@ namespace SenhasAPI.Models
         public string Valor { get; set; }
         
         [Required]
-        public DateTime DataDeCriacao { get; } = DateTime.Now;
+        public DateTime DataDeCriacao { get; set; }
 
         [JsonIgnore]
         public virtual Usuario Usuario { get; set; }

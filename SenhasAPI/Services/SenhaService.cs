@@ -31,7 +31,7 @@ namespace SenhasAPI.Services
                 {
                     return Result.Fail("Senha não encontrada.");
                 }
-                senha = _mapper.Map<Senha>(senhaDto);
+                _mapper.Map(senhaDto, senha);
                 await _dbContext.SaveChangesAsync();
                 return Result.Ok();
             }
@@ -73,7 +73,7 @@ namespace SenhasAPI.Services
         {
             try
             {
-                Senha senha = _mapper.Map<Senha>(RetornaSenhaPorId(senhaId,autorizacao));
+                Senha senha = RetornaSenhaPorId(senhaId,autorizacao).Result;
                 if (senha == null)
                 {
                     return Result.Fail("Senha não encontrada.");
