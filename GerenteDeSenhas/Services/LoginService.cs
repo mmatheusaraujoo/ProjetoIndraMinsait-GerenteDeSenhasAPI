@@ -2,7 +2,6 @@
 using GerenteDeSenhas.Data.Request;
 using GerenteDeSenhas.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 namespace GerenteDeSenhas.Services
 {
@@ -35,6 +34,46 @@ namespace GerenteDeSenhas.Services
                 
             }
             return Result.Fail("Não foi possível realizar o login. Login Falhou!");
+        }
+
+        public Result SolicitaRecuperaSenhaUsuario(SolicitaRecuperaSenhaRequest request)
+        {
+            IdentityUser<Guid> identityUser = RecuperaUsuarioPorEmail(request.Email);
+            if (identityUser != null)
+            {
+                string codigoDeRecuperacao = _signInManager
+                    .UserManager
+                    .GeneratePasswordResetTokenAsync(identityUser)
+                    .Result;
+                return Result.Ok().WithSuccess(codigoDeRecuperacao);
+            }
+            return Result.Fail("Falha ao solicitar recuperação de senha");
+        }
+
+
+        public Result RecuperaSenhaUsuario(RecuperaSenhaRequest request)
+        {
+            IdentityUser<Guid> identityUser = RecuperaUsuarioPorEmail(request.Email);
+            IdentityResult identityResult = _signInManager
+                .UserManager
+                .ResetPasswordAsync(identityUser,request.CodigoDeRecuperacao, request.Password)
+                .Result;
+            if (identityResult.Succeeded)
+            {
+                return Result.Ok().WithSuccess("Senha redefinida com sucesso!");
+            }
+            else
+            {
+                return Result.Fail("Erro ao redefinir senha.");
+            }
+        }
+
+        private IdentityUser<Guid> RecuperaUsuarioPorEmail(string email)
+        {
+            return _signInManager
+                .UserManager
+                .Users
+                .FirstOrDefault(user => user.NormalizedEmail.Equals(email.ToUpper()));
         }
     }
 }

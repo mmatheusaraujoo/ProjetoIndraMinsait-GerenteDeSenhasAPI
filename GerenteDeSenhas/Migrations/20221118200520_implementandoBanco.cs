@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GerenteDeSenhas.Migrations
 {
-    public partial class CriandoUsusario : Migration
+    public partial class implementandoBanco : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

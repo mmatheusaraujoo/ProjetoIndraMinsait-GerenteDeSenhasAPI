@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GerenteDeSenhas.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20221117134207_CriandoUsuario2")]
-    partial class CriandoUsuario2
+    [Migration("20221118200520_implementandoBanco")]
+    partial class implementandoBanco
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

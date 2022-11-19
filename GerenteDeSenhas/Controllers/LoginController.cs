@@ -27,8 +27,38 @@ namespace GerenteDeSenhas.Controllers
             else { return Unauthorized(resultado.Errors.FirstOrDefault()); }
             
         }
-        
-    
+
+        [HttpPost("/solicita-recupera-senha")]
+        public IActionResult SolicitaRecuperaSenhaUsuario(SolicitaRecuperaSenhaRequest request)
+        {
+            Result resultado = _loginService.SolicitaRecuperaSenhaUsuario(request);
+            if (resultado.IsSuccess) 
+            {
+                return Ok(resultado.Successes.FirstOrDefault());
+            }
+            else
+            {
+                return Unauthorized(resultado.Errors.FirstOrDefault());
+            }
+
+        }
+
+        [HttpPost("/recupera-senha")]
+        public IActionResult RecuperaSenhaUsuario(RecuperaSenhaRequest request)
+        {
+            Result resultado = _loginService.RecuperaSenhaUsuario(request);
+            if (resultado.IsSuccess)
+            {
+                return Ok(resultado.Successes.FirstOrDefault());
+            }
+            else
+            {
+                return Unauthorized(resultado.Errors.FirstOrDefault());
+            }
+
+        }
+
+
     }
 
 }

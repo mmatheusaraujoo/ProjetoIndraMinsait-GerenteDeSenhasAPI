@@ -21,8 +21,15 @@ namespace GerenteDeSenhas.Controllers
         public IActionResult CadastraUsuario(CreateUsuarioDto createDto)
         {
             Result resultado = _cadastroService.CadastraUsuario(createDto);
-            if (resultado.IsSuccess) return Ok(resultado.Successes.FirstOrDefault());
-            return StatusCode(500);
+            if (resultado.IsSuccess)
+            {
+                return Ok();
+            }
+            else if (resultado.IsFailed)
+            {
+                return BadRequest(resultado.Errors.FirstOrDefault());
+            }
+            else { return StatusCode(500); }
         }
 
         [HttpGet("/ativacao")]

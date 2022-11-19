@@ -2,9 +2,9 @@
 using FluentResults;
 using GerenteDeSenhas.Data.Dtos;
 using GerenteDeSenhas.Data.Request;
-using GerenteDeSenhas.Migrations;
 using GerenteDeSenhas.Models;
 using Microsoft.AspNetCore.Identity;
+using System.Diagnostics.CodeAnalysis;
 using System.Web;
 
 namespace GerenteDeSenhas.Services
@@ -26,6 +26,11 @@ namespace GerenteDeSenhas.Services
         {
             Usuario usuario = _mapper.Map<Usuario>(createDto);
             IdentityUser<Guid> usuarioIdentity = _mapper.Map<IdentityUser<Guid>>(usuario);
+
+            IdentityUser<Guid> usuarioEmailExistente = _userManager.Users.FirstOrDefault(u => u.NormalizedEmail.Equals(usuarioIdentity.Email.ToUpper()));
+            IdentityUser<Guid> usuarioUsernameExistente = _userManager.Users.FirstOrDefault(u => u.NormalizedUserName.Equals(usuarioIdentity.UserName.ToUpper()));
+            if(usuarioEmailExistente!= null || usuarioUsernameExistente != null) { return Result.Fail("E-mail ou Usuário já cadastrados."); }
+
             Task<IdentityResult> identityResult = _userManager
                 .CreateAsync(usuarioIdentity, createDto.Password);
             
@@ -40,7 +45,7 @@ namespace GerenteDeSenhas.Services
 
                 return Result.Ok().WithSuccess(codigoDeAtivacao);
             }
-            return Result.Fail("Falha ao cadastrar usuário");
+            return null;
 
         }
 
